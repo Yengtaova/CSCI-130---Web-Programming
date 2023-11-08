@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Browser</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <style>
+        #car-image{
+            max-width: 300px;
+            max-height: 200px;
+        }
+        #button-container{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <button id="demo" onclick="convertJSON()">Press the Button to Generate Car JSON Representation</button><br><br>
+    <div id="json-display"></div><br>
+
+    <button id="display-button">Press the button to display a vehicle</button>
+    <div id="car-details" style="display: none">
+        <h2>Car Details</h2>
+        <p id="car-info">Loading car data...</p>
+        <img id="car-image" src="" alt="Car Image">
+    </div>
+    <div id="button-container">
+        <button id="prev-button" style="display: none;">Previous</button>
+        <button id="next-button" style="display: none;">Next</button>
+    </div>
+
+    <script>
+        class Car {
+            constructor(brand, model, year, color, bodyStyle, isAutomatic, type, imageLink) {
+                this.brand = brand;
+                this.model = model;
+                this.year = year;
+                this.color = color;
+                this.bodyStyle = bodyStyle;
+                this.isAutomatic = isAutomatic;
+                this.type = type;
+                this.imageLink = imageLink;
+            }
+
+            getDescription() {
+                const transmission = this.isAutomatic ? "Automatic" : "Manual";
+                return `Brand, Model and Year: <b>${this.year} ${this.brand} ${this.model}</b> <br>Color: <b>${this.color}</b>
+                        <br>Transmission: <b>${transmission}</b> <br>Body Sytle: <b>${this.bodyStyle} (${this.type})</b>`;
+            }
+        }
+        //Step 2 Create 5 instances of the class you created, then create an array containing these 5 objects,
+//and transform this array into its JSON representation.
+
+const cars = [
+    new Car("Toyota", "Camry", 2022 , "Blue", "Sedan", true, "FWD", "car1.jpg"),
+    new Car("Honda", "Civic", 2021, "Red", "Sedan", "true", "FWD", "car2.jpg"),
+    new Car("Ford", "Mustang", 2020, "Yellow", "Coupe", false, "RWD", "car3.jpg"),
+    new Car("Jeep", "Wrangler", 2021, "Green", "SUV", true, "4WD", "car4.jpg"),
+    new Car("Chevrolet", "Silverado", 2022, "Black", "Truck", true, "4WD", "car5.jpg")
+];
+
+//Step 3 convert JavaScript value to JSON string and save the contend manually to the server
+const myJSON = JSON.stringify(cars);
+
+
+function convertJSON(){
+    const jsonDisplay = document.getElementById("json-display");
+    jsonDisplay.innerHTML =  myJSON;
+}
+
+        var carsData = [];
+        var carsObjects = [];
+        var currentIndex = 0;
+
+        function displayCarDetails(index) {
+            var car = carsObjects[index];
+            var carInfo = document.getElementById('car-info');
+            var carImage = document.getElementById('car-image');
+            //at first I use carInfo.textContent and the display info always show as a single line
+            //To fix the issue we need to use innerHTML. By using it, the HTML line breaks '<br>' will
+            //be treated as an actual line breaks in the rendered content.
+            carInfo.innerHTML = car.getDescription();
+            carImage.src = car.imageLink;
+        }
+
+        function nextCar() {
+            currentIndex = (currentIndex + 1) % carsObjects.length;
+            displayCarDetails(currentIndex);
+        }
+
+        function previousCar() {
+            currentIndex = (currentIndex - 1 + carsObjects.length) % carsObjects.length;
+            displayCarDetails(currentIndex);
+        }
+
+        document.getElementById('display-button').addEventListener('click', function() {
+            displayCarDetails(currentIndex);
+            //document.getElementById('display-button').style.display = 'none';
+            document.getElementById('car-details').style.display = 'block';
+            document.getElementById('prev-button').style.display = 'block';
+            document.getElementById('next-button').style.display = 'block';
+        });
+
+        document.getElementById('next-button').addEventListener('click', nextCar);
+        document.getElementById('prev-button').addEventListener('click', previousCar);
+
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+                    carsData = JSON.parse(httpRequest.responseText);
+                    carsObjects = carsData.map(carData => new Car(
+                        carData.brand,
+                        carData.model,
+                        carData.year,
+                        carData.color,
+                        carData.bodyStyle,
+                        carData.isAutomatic,
+                        carData.type,
+                        carData.imageLink
+                    ));
+                    displayCarDetails(currentIndex);
+                } else {
+                    console.error('Error loading JSON: ' + httpRequest.status);
+                }
+            }
+        };
+
+        // Set the path to your JSON file on the server
+        // var path = 'http://localhost/Lab8/mycollection.json'; // Update the URL accordingly
+        
+        /*The problem is that when you're testing on other devices via port forwarding, they
+        may not be able to access 'https://localhost' because 'localhhost' typically refers to
+        the local machine where the server is running. To solve this issue and allow other devices
+        to access the JSON data, you should replace 'localhost' with the IP address or hostname
+        of the machine where the server is running.*/
+           var path = 'http://10.0.0.68/Lab8/mycollection.json'; // Update the URL accordingly
+        httpRequest.open('GET', path, true);
+        httpRequest.send();
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!--
+Exercise 1. Concatenations (15min)
+Evaluate each expression (alert) and give the type (typeof) of each output:
+1. "" + 1 + 0
+2. "" - 1 + 0
+3. true + false
+4. 6 / "3"
+5. "2" * "3"
+6. 4 + 5 + "px"
+7. "$" + 4 + 5
+8. "4" - 2
+9. "4px" - 2
+10. 7 / 0
+11. " -9\n" + 5
+12. " -9\n" - 5
+13. null + 1
+14. undefined + 1
+-->
+
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>Concatenations</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <script>
+         var text = "" + 1 + 0, text2 = "" - 1 + 0, text3 = true + false,
+             text4 = 6 / "3", text5 = "2" * "3", text6 =  4 + 5 + "px",
+             text7 = "$" + 4 + 5, text8 = "4" - 2, text9 = "4px" - 2,
+             text10 = 7 / 0, text11 = " -9\n" + 5, text12 = " -9\n" - 5,
+             text13 = null + 1, text14 =  undefined + 1;
+
+            /*
+            String concatenation is done with + so Javascript will convert the first numeric 1 to a string and concatenate "1" and "1" making "11".
+            You cannot perform subtraction on strings, so Javascript converts the second "1" to a number and subtracts 1 from 1, resulting in zero
+            */
+         alert('("" + 1 + 0)' + "---->" + text + "---->" + typeof text + "\n" + 
+               '("" - 1 + 0)' + "---->" + text2 + "---->" + typeof text2 + "\n" +     
+               '(true + false)' + "---->" + text3 + "---->" + typeof text3 + "\n" +
+               '(6 / "3")' + "---->" + text4 + "---->" + typeof text4 + "\n" +
+               '("2" * "3")' + "---->" + text5 + "---->" + typeof text5 + "\n" +
+               '(4 + 5 + "px")' + "---->" + text6 + "---->" + typeof text6 + "\n" +
+               '("$" + 4 + 5)' + "---->" + text7 + "---->" + typeof text7 + "\n" +
+               '("4" - 2)' + "---->" + text8 + "---->" + typeof text8 + "\n" +
+               '("4px" - 2)' + "---->" + text9 + "---->" + typeof text9 + "\n" +
+               '(7 / 0)' + "---->" + text10 + "---->" + typeof text10 + "\n" +
+               '("-9\n" + 5)' + "---->" + text11 + "---->" + typeof text11 + "\n" +
+               '("-9\n" - 5)' + "---->" + text12 + "---->" + typeof text12 + "\n" +
+               '(null + 1)' + "---->" + text13 + "---->" + typeof text13 + "\n" +
+               '(undefined + 1)' + "---->" + text14 + "---->" + typeof text14);
+            //For number 11 and 12 is the same, it is just a new line expression in there, it stil be like "-9" + "5" but with a breakline added. 
+        </script>
+    </body>
+</html>

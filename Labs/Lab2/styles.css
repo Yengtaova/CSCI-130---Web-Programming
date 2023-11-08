@@ -1,0 +1,24 @@
+body{
+    font-family: sans-serif;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+
+td {
+    text-align: center;
+    width: 70px;
+    border: 1px solid black;
+    padding: 5px 0px 5px 0px;
+}
+
+th{
+    width: 50px;
+}
+
+.sum{
+    font-style: italic;
+    font-weight: bold;
+}

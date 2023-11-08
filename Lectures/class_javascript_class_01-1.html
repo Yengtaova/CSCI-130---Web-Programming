@@ -1,0 +1,275 @@
+<!DOCTYPE html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Classes with Javascript (CSci130 - Lab session)</title>
+</head>
+<body>
+<script>
+// From: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes 
+
+// Example:
+class Animal {
+    constructor(type) {
+        this.type = type;
+    }
+    identify() {
+        console.log(this.type);
+    }
+}
+
+let cat = new Animal('Cat');
+cat.identify();
+
+// Creation of the class
+class Rectangle0 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+// You first need to declare your class and then access it, otherwise code like the following will throw a ReferenceError
+
+const p = new Rectangle0(); // ReferenceError
+
+// A class expression is another way to define a class
+// unnamed
+let Rectangle1 = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+
+
+console.log(Rectangle1.name);
+// output: "Rectangle1"
+
+// named
+let Rectangle3 = class Rectangle2 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle3.name);
+// output: "Rectangle2"
+
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+
+// The get syntax binds an object property to 
+// a function that will be called when that property is looked up.
+
+
+// The set syntax binds an object property to 
+// a function to be called when there is an attempt to set that property.
+
+class Rectangle4 {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+  // Getter
+  get area() {
+    return this.calcArea();
+  }
+  
+  // Setter
+  set area(value) {
+    this._area = value;
+  }
+  
+  
+  // Method
+  calcArea() {
+    return this.height * this.width;
+  }
+}
+
+const square = new Rectangle4(10, 10);
+console.log(square.area); // 100 , use of the getter
+square.area=45; // use of the setter
+
+
+// As you can see, we use square.area, not square.area()
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+// static key word
+// static method of the class Point
+  static distance(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+
+    return Math.hypot(dx, dy);
+	// The Math.hypot() function returns the square root of the sum of squares of its arguments
+  }
+}
+
+const p1 = new Point(5, 5);
+const p2 = new Point(10, 10);
+p1.distance; //undefined
+p2.distance; //undefined
+
+console.log(Point.distance(p1, p2)); // 7.0710678118654755
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+class Animal { 
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    return this;
+  }
+  static eat() {
+    return this;
+  }
+}
+
+
+let obj = new Animal();
+obj.speak(); // Animal {}
+let speak = obj.speak;
+speak(); // undefined
+
+Animal.eat() // class Animal
+let eat = Animal.eat;
+eat(); // undefined
+
+
+// Private field declarations
+class Rectangle5 {
+  #height = 0;
+  #width;
+  constructor(height, width) {    
+    this.#height = height;
+    this.#width = width;
+  }
+}
+
+
+class MyClass {
+  a = 1;          // .a is public
+  #b = 2;         // .#b is private
+  static #c = 3;  // .#c is private and static
+  incB() {
+    this.#b++;
+  }
+}
+
+const m = new MyClass();
+m.incB(); // runs OK
+m.#b = 0; // error - private property cannot be modified outside class
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Sub classing with extends
+////////////////////////////////////////////////////////////////////////////////
+
+
+class Animal1 { 
+  constructor(name) {
+    this.name = name;
+  }
+  
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal1 {
+  constructor(name) {
+    super(name); // call the super class constructor and pass in the name parameter
+  }
+
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+let d = new Dog('Mitzie');
+d.speak(); // Mitzie barks.
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Super class calls with super
+////////////////////////////////////////////////////////////////////////////////
+
+// The super keyword is used to call corresponding methods of super class. 
+// This is one advantage over prototype-based inheritance.
+
+
+class Rectangle {
+  constructor(height, width) {
+    this.name = 'Rectangle';
+    this.height = height;
+    this.width = width;
+  }
+  sayName() {
+    console.log('Hello, I am a ', this.name + '.');
+  }
+  get area() {
+    return this.height * this.width;
+  }
+  set area(value) {
+    this._area = value;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(length) {
+    this.height; // ReferenceError, super needs to be called first!
+
+    // Here, it calls the parent class's constructor with lengths
+    // provided for the Rectangle's width and height
+    super(length, length);
+
+    // Note: In derived classes, super() must be called before you
+    // can use 'this'. Leaving this out will cause a reference error.
+    this.name = 'Square';
+  }
+}
+
+
+
+
+
+
+
+class Cat { 
+  constructor(name) {
+    this.name = name;
+  }
+  
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Lion extends Cat {
+  speak() {
+    super.speak();
+    console.log(`${this.name} roars.`);
+  }
+}
+
+let l = new Lion('Fuzzy');
+l.speak(); 
+// Fuzzy makes a noise.
+// Fuzzy roars.
+
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Basic Syntax</title>
+    </head>
+    <body>
+        <script>
+            //Function to calculate the area of the circle
+            function calculateCircleArea(radius){
+                return Math.PI * radius * radius;
+            }
+
+            //Function to calculate perimeter of a circle
+            function calculateCirclePerimeter(radius){
+                return 2 * Math.PI * radius;
+            }
+
+            //Function to calculate the area of the rectangle
+            function calculateRectangleArea(width, height){
+                return width * height;
+            }
+
+            //Function to calculate the perimeter of a rectangle
+            function calculateRectanglePerimeter(width, height){
+                return 2 * (width + height);
+            }
+
+            //Function to calculate the area of Square
+            function calculateSquareArea(side){
+                return side * side;
+            }
+
+            //Function to calculate the perimeter of square
+            function calculateSquarePerimeter(side){
+                return 4 * side;
+            }
+
+            //Display first message
+            alert("It is my first example with Javascript");
+
+            const shapeChoice = prompt("Select a shape (circle, rectangle, or square):").toLowerCase();
+
+            if(shapeChoice == "circle"){
+                // The parseFloat() function parses a string argument and returns a floating point number.
+                const radius = parseFloat(prompt("Enter the radius of circle:"));
+                const area = calculateCircleArea(radius);
+                const perimeter = calculateCirclePerimeter(radius);
+
+                //One special feature of the template literal feature is the ability to include expressions and 
+                //variables within a string. Instead of having to use concatenation, we can use the ${} syntax to insert a variable.
+                /****Remember when you use a template literal, use a back tick ` instead of single or double quote, otherwise it won't work****/
+                var text =  `The area of the circle is: ${area.toFixed(2)}\n and the perimeter is: ${perimeter.toFixed(2)}`
+                alert(text);
+            }
+            else if(shapeChoice == "rectangle"){
+                const width = parseFloat(prompt("Enter the width:"));
+                const height = parseFloat(prompt("Enter the height:"));
+                const area = calculateRectangleArea(width, height);
+                const perimeter = calculateRectanglePerimeter(width, height);
+                
+                var text = `The area of the rectangle is ${area.toFixed(2)} \nand the perimeter is ${perimeter.toFixed(2)}`;
+                alert(text);
+            }
+            else if(shapeChoice == "square"){
+                const side = parseFloat(prompt("Enter the side length of the square:"));
+                const area = calculateSquareArea(side);
+                const perimeter = calculateSquarePerimeter(side);
+
+                var text = `The area of the sqaure is ${area.toFixed(2)} \nand the perimeter is ${perimeter.toFixed(2)}`;
+                alert(text);
+            }
+        </script>
+    </body>
+</html>

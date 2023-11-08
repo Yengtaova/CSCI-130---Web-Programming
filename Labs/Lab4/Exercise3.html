@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>Basic Array Function</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <script>
+            //Function to calculate the average of values in the array
+            function calculateAverage(arr){
+                let sum = 0;
+                for(let i = 0; i < arr.length; i++){
+                    sum += arr[i];
+                }
+                return sum / arr.length;
+            }
+
+            //Function to calculate the standard deviation of value 
+            function calculateStandardDeviation(arr){
+                const avg = calculateAverage(arr);
+                const squaredDifferences = arr.map((value) => Math.pow(value - avg, 2));
+                const variance = calculateAverage(squaredDifferences);
+                return Math.sqrt(variance);
+            }
+
+            //Function to display average and standard deviation in a message box
+            function displayStats(arr){
+                const average = calculateAverage(arr);
+                const stdDeviation = calculateStandardDeviation(arr);
+
+                const message = `Average: ${average.toFixed(2)}\nStandard Deviation: ${stdDeviation.toFixed(2)}`;
+
+                alert(message);
+            }
+
+            const x = new Array(12);
+            x[0] = 5;
+            x[1] = 8;
+            x[2] = 10;
+            x[3] = 12;
+            x[4] = 15;
+            x[5] = 20;
+            x[6] = 22;
+            x[7] = 25;
+            x[8] = 28;
+            x[9] = 30;
+            x[10] = 35;
+            x[11] = 40;
+
+            displayStats(x);
+        </script>
+    </body>
+</html>
+
+<!--
+We consider an array that can be defined as follows:
+var x = new Array(12); // 12 being the size of the array
+You can access the elements like in C ++: x[0] for the first position
+ Create a function to get the average of the values in the array
+ Create a function to get the standard deviation of the values in the array
+ Create a function to display the average and standard deviation in a message box.
+-->

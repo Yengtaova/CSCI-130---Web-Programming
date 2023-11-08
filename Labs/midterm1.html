@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Midterm 1</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <h1>Midterm 1 - Part2</h1>
+        <p>I use alert() to display each function. Please uncomment each function to display it.</p>
+        <section id="sectionId"></section>
+
+
+        <!--5.Form-->
+        <form>
+        <label for="one">Enter the number here</label>
+        <input id="one" type="number"></input>
+        <br>
+        <input type="button" value="OK" onclick="checkFact()"></button>
+        <input type="reverse" value="OK" onclick="checkFact()"></button>
+        </form>
+        <script>
+            /****1. Factorial Recursive Function
+            function factorial(n) { 
+                if (n === 0 || n === 1) { 
+                    return 1; 
+                } else { 
+                    return n * factorial(n - 1); 
+                } 
+            } 
+            let num1 = 6; 
+            let result = factorial(num1); 
+            alert("The factorial of given number is :" + result);****/
+
+
+            /****2.Array containing the value of Factorial number
+            function calculateFactorials(n) {
+            const factorials = [];
+
+            for (let i = 1; i <= n; i++) {
+                factorials.push(calculateFactorial(i));
+            }
+                return factorials;
+            }
+
+            function calculateFactorial(number) {
+            if (number === 0 || number === 1) {
+                return 1;
+            }
+
+            let factorial = 1;
+            for (let i = 2; i <= number; i++) {
+                factorial *= i;
+            }
+
+            return factorial;
+            }
+
+            const n = 5; // Change this to the desired value of n
+            const factorialArray = calculateFactorials(n);
+            alert(factorialArray);****/
+
+            /****3. JavaScript function to reverse the elements in array
+
+            function reverseArr(input) {
+                    var ret = new Array;
+                    for(var i = input.length-1; i >= 0; i--) {
+                    ret.push(input[i]);
+                    }
+                return ret;
+            }
+
+            var a = [1,2,3,4]
+            var b = reverseArr(a);
+            alert(b);
+            ****/
+
+            /****4.Create a JavaScript function that displays all the factorial numbers from 1 to n in an HTML section, 
+            with n and the id of the section given as inputs.
+            function calculateFactorialsAndDisplay(n, sectionId) {
+            const section = document.getElementById(sectionId);
+                    if (!section) {
+                        console.error(`Section with ID "${sectionId}" not found.`);
+                        return;
+                    }
+
+                    let result = "Factorial Numbers: ";
+                    for (let i = 1; i <= n; i++) {
+                        result += calculateFactorial(i);
+                        if (i < n) {
+                        result += ", ";
+                        }
+                    }
+
+                    section.textContent = result;
+                    }
+
+                    function calculateFactorial(number) {
+                    if (number === 0 || number === 1) {
+                        return 1;
+                    }
+
+                    let factorial = 1;
+                    for (let i = 2; i <= number; i++) {
+                        factorial *= i;
+                    }
+
+                    return factorial;
+                    }
+
+                    const m = 6; // Change this to the desired value of n
+                    const demo = "factorialSection";
+                    calculateFactorialsAndDisplay(m, demo); ****/
+
+        </script>
+
+
+
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factorial Numbers</title>
+</head>
+<body>
+  <h2>Factorial Numbers</h2>
+  <section id="factorialSection"></section>
+
+  <script>
+    function calculateFactorialsAndDisplay(n, sectionId) {
+      const section = document.getElementById(sectionId);
+      if (!section) {
+        console.error(`Section with ID "${sectionId}" not found.`);
+        return;
+      }
+
+      let result = "Factorial Numbers: ";
+      for (let i = 1; i <= n; i++) {
+        result += calculateFactorial(i);
+        if (i < n) {
+          result += ", ";
+        }
+      }
+
+      section.textContent = result;
+    }
+
+    function calculateFactorial(number) {
+      if (number === 0 || number === 1) {
+        return 1;
+      }
+
+      let factorial = 1;
+      for (let i = 2; i <= number; i++) {
+        factorial *= i;
+      }
+
+      return factorial;
+    }
+
+    const n = 6; // Change this to the desired value of n
+    const sectionId = "factorialSection";
+    calculateFactorialsAndDisplay(n, sectionId);
+  </script>
+</body>
+</html>

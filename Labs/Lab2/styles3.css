@@ -1,0 +1,63 @@
+#navlist { 
+    background-color: white;
+    height: 150px;
+    width: 350px;
+ }
+
+ /*
+ li{
+    
+    margin: -25px 0px -0px -30px; /*top right bottom left
+	padding: 20px 0 30px 44px; /*top right bottom left
+	list-style: none;
+	background-image: url("https://sportslogohistory.com/wp-content/uploads/2021/06/fresno_state_bulldogs_2012-2016_a.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+    background-position-y: 15px;
+	
+    
+   background-size: 20px;
+    
+ }*/
+
+ li{
+    list-style: none;
+    margin: -25px 0px -0px -30px;
+    padding: 5px 0px 30px 4px;
+ }
+
+ .listImage{
+    float:left;
+    margin: 0px;
+    width:19px
+ }
+
+ h1{
+    color: white;
+    background-color: #C50A2C;
+    margin: 0px 0px 40px 0px;
+ }
+
+ h3, #bottom{
+    text-align: center;
+ }
+
+ #bottom{
+    
+ }
+
+ body{
+    background-color: #003689;
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Fresno_State_Bulldogs_logo.svg/640px-Fresno_State_Bulldogs_logo.svg.png);
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x:98%;
+    background-position-y: 75px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18;
+ }
+
+ #para, #bottom{
+    background-color: white;
+ }
+

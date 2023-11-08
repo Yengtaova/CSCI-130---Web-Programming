@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Exercise 1-Table 1 Internal</title>
+        <style>
+            body{
+                font-family: sans-serif;
+             }
+
+
+            table{
+                border-collapse: collapse;
+            }
+
+            td {
+                text-align: center;
+                width: 70px;
+                border: 1px solid black;
+                padding: 5px 0px 5px 0px;
+             }
+
+            th{
+                width: 50px;
+            }
+
+            .sum{
+                font-style: italic;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <p><b>Quarterly Financial for 1962-1964 (in<br> Thousands)</b></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Quarter</th>
+                    <th>1962</th>
+                    <th>1963</th>
+                    <th>1964</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Q1</th>
+                    <td>$145</td>
+                    <td>$167</td>
+                    <td>$161</td>
+                </tr>
+                <tr>
+                    <th>Q2</th>
+                    <td>$140</td>
+                    <td>$159</td>
+                    <td>$164</td>
+                </tr>
+            </tbody>
+            <tfoot class="sum">
+                <tr>
+                    <th>Total</th>
+                    <td>$595</td>
+                    <td>$648</td>
+                    <td>$664</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

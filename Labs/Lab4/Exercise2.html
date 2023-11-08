@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>Conditions</title>
+        <meta charset= "UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <script>
+            const login = prompt("Please enter your login as (student or faculty)").toLowerCase();
+            let msg;
+            if (login == 'student') {
+            msg = 'Hi';
+            } else if (login == 'faculty') {
+            msg = 'Greetings';
+            } else if (login == '') {
+            msg = 'No login';
+            } else {
+            msg = '';
+            }
+            alert(msg);
+        </script>
+    </body>
+</html>

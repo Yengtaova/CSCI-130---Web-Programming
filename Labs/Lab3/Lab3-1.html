@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Exercise 1-Table 1 Internal</title>
+        <style>
+            body{
+                font-family: sans-serif;
+             }
+
+
+            table{
+                border-collapse: collapse;
+               
+            }
+
+            caption{
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+
+            tr:hover{
+                background-color: green;
+            }
+
+            td:hover {
+            background-color: red;
+            transform: scale(1.2); /* Enlarge the cell on hover */
+            }
+
+            .table1 td {
+                text-align: center;
+                width: 70px;
+                border: 1px solid black;
+                padding: 5px 0px 5px 0px;
+             }
+
+            .table1th{
+                width: 50px;
+            }
+
+            .sum{
+                font-style: italic;
+                font-weight: bold;
+            }
+
+            .table2{
+                border-collapse: collapse; border: 2px solid blue;
+            }
+
+            .table2 td {
+
+                border: 1px solid red; 
+                text-align: center; width: 200px; 
+                padding: 5px 0px 5px 0px;
+                width: 300px;
+                text-align: center;
+            }
+
+            
+
+            
+
+
+        </style>
+    </head>
+    <body>
+        <div class="container1">
+        <table class="table1">
+            <caption>Quarterly Financial for 1962-1964 (in Thousands)</caption>
+            <thead>
+                <tr>
+                    <th>Quarter</th>
+                    <th>1962</th>
+                    <th>1963</th>
+                    <th>1964</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Q1</th>
+                    <td>$145</td>
+                    <td>$167</td>
+                    <td>$161</td>
+                </tr>
+                <tr>
+                    <th>Q2</th>
+                    <td>$140</td>
+                    <td>$159</td>
+                    <td>$164</td>
+                </tr>
+            </tbody>
+            <tfoot class="sum">
+                <tr>
+                    <th>Total</th>
+                    <td>$595</td>
+                    <td>$648</td>
+                    <td>$664</td>
+                </tr>
+            </tfoot>
+        </table>
+        </div>
+        <br>
+        <div class="container2">
+            <table class="table2">
+                    <caption>TV Schedule</caption>
+                <tr>
+                    <th>Time</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                </tr>
+                <tr>
+                    <th>8 pm</th>
+                    <td>Staring Contest</td>
+                    <td colspan="2">Celebrity Hoedown</td>
+                </tr>
+                <tr>
+                    <th>9 pm</th>
+                    <td>Hardy, Har, Har</td>
+                    <td>What's for Lunch?</td>
+                    <td rowspan="2">Movie of the Week</td>
+                </tr>
+                <tr>
+                    <th>10 pm</th>
+                    <td>Healer, Wheelers, Dealers</td>
+                    <td>It's a Crime</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic Calculator</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=display-width, initial-scale=1.0"/>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>Calculator</title>
+    </head>
+
+    <body>
+        <div id="calculator">
+            <table>
+                <caption>Calculator</caption>
+                <tr>
+                    <th colspan="4">
+                        <input id="sequence" type="text" disabled>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="4">
+                        <input id="currentValue" type="text" disabled>
+                    </th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button onclick="clearCurrentValue()" class="button" >CE</button></td>
+                    <td><button onclick="calculateSquareRoot()" class="button" >SQRT</button></td>
+                    <td><button onclick="appendToSequence('/')" class="button" >/</button></td>
+           
+                </tr>
+                <tr>
+                    <td><button onclick="appendToSequence('7')">7</button></td>
+                    <td><button onclick="appendToSequence('8')">8</button></td>
+                    <td><button onclick="appendToSequence('9')">9</button></td>
+                    <td><button onclick="appendToSequence('*')" class="button" >*</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="appendToSequence('4')">4</button></td>
+                    <td><button onclick="appendToSequence('5')">5</button></td>
+                    <td><button onclick="appendToSequence('6')">6</button></td>
+                    <td><button onclick="appendToSequence('-')" class="button" >-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="appendToSequence('1')">1</button></td>
+                    <td><button onclick="appendToSequence('2')">2</button></td>
+                    <td><button onclick="appendToSequence('3')">3</button></td>
+                    <td><button onclick="appendToSequence('+')" class="button" >+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="toggleSign()" class="button" >+/-</button></td>
+                    <td><button onclick="appendToSequence('0')">0</button></td>
+                    <td><button onclick="appendToSequence('.')" class="button" >.</button></td>
+                    <td><button onclick="calculate()" class="button" >=</button></td>
+                </tr>
+            </table>
+        </div>
+        <script src="script.js"></script>
+    </body>
+
+</html>

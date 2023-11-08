@@ -1,0 +1,207 @@
+<!DOCTYPE html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>My page with Javascript (Lab session)</title>
+
+<style>
+h1 {
+color: blue;
+font-family: arial;
+font-size: 24pt;
+}
+
+h2 {
+color: red;
+font-family: arial;
+font-size: 12pt;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<p>Example of script</p>
+<script>
+
+document.write('<h1>Exercise 1 </h1>');
+
+let result;
+let typeofresult;
+let choice;
+
+choice=prompt('Expression to evaluate?',1);
+alert(choice);
+switch (choice) {
+case '1': result="" + 1 + 0; break;
+case '2':result="" - 1 + 0; break;
+case '3':result=true + false; break;
+case '4':result=6 / "3"; break;
+case '5':result="2" * "3"; break;
+case '6':result=4 + 5 + "px"; break; // "9px  string"
+case '7':result="$" + 4 + 5; break;
+case '8':result="4" - 2; break;
+case '9':result="4px" - 2; break;
+case '10':result=7 / 0; break;
+case '11':result="  -9\n" + 5; break;  // -9 next line 5
+case '12':result="  -9\n" - 5; break; // -14
+case '13':result=null + 1; break;
+case '14':result=undefined + 1; break;
+}
+typeofresult=typeof result;
+alert(result + "  " + typeofresult); 
+document.write('<h2>' + result + '</h2>');
+document.write('<h2>' + typeofresult + '</h2>');
+
+
+function Test1(login) {
+let msg;
+if (login == 'student') {
+  msg = 'Hi';
+} else if (login == 'faculty') {
+  msg = 'Greetings';
+} else if (login == '') {
+  msg = 'No login';
+} else {
+  msg = '';
+}
+return msg;
+}
+
+function Test2(login) {
+let msg = (login == 'student') ? 'Hi': login == 'faculty' ? 'Greetings' : (login == '') ? 'No login' : "";
+return msg;
+}
+
+
+document.write('<h1>Exercise 2 </h2>');
+document.write('Test1  :' + Test1('student') + '   '  + Test1('faculty') + '   ' + Test1(''));
+document.write('<br>');
+document.write('Test2  :' + Test1('student') + '   '  + Test1('faculty') + '   ' + Test1(''));
+
+function SetUpArray()
+{
+	let n=prompt('Give the size of the array',1);
+	let x=new Array(n);
+	for (let i=0;i<n;i++){
+	
+		x[i]=prompt('Give the value:',i);
+		x[i]=Number(x[i]);
+		}
+	return x;
+}
+
+function SetFixedArray()
+{
+	let x=Array(10);
+	for (let i=0;i<10;i++)
+	x[i]=Math.floor(Math.random()*100);
+	return x;	
+}
+
+
+function DisplayArray(x)
+{
+	for (let i=0;i<x.length;i++)
+		document.write('Element ' + i + ' with value:' + x[i] + '<br>');
+}
+
+
+function Average(x)
+{
+	let n=x.length;
+	let average=0;
+	if (n>0) {
+	for (let i=0;i<n;i++)
+		average+=x[i];
+	average/=n; 
+	}
+	return average;
+}
+
+function StandardDeviation(x,m)
+{
+	let n=x.length;
+	let std=0;
+	if (n>0) {
+	for (let i=0;i<n;i++)
+		std+=(x[i]-m)*(x[i]-m);
+	std/=n;
+	std=Math.sqrt(std);	
+	}
+	return std;
+}
+
+function DisplayArrayInfo(x)
+{
+	let m=Average(x);
+	document.write('Average:' + m + '<br>');
+	document.write('Standard Deviation:' + StandardDeviation(x,m) + '<br>');
+}
+
+
+document.write('<h1>Exercise 3 </h1>');
+x1=SetUpArray();
+//x1=SetFixedArray();
+DisplayArray(x1);
+DisplayArrayInfo(x1);
+
+document.write('<h1>Exercise 4 </h1>');
+
+function GetPrime()
+{
+	let n = prompt('Number of prime',2);
+	let nmax=10000;
+	n=Number(n);
+	let nprime=0;
+	
+	for (let i = 2; i <= nmax; i++) 
+	{ 
+		let j;
+		for (j = 2; j < i; j++) { 
+			if (i % j == 0) 
+				break; // not a prime, go next i
+		}
+		if (j==i)
+		{
+			alert( i + ',' + nprime + ' of ' + n ); // a prime
+			nprime++;
+			if (nprime>n)
+				break;
+		}
+		
+	}
+
+}
+
+GetPrime();
+
+document.write('<h1>Exercise 5 </h1>');
+
+function PlayGame()
+{
+	let x=Math.floor(Math.random()*100);
+	
+	let input = prompt('Enter number',1);
+	input=Number(input);
+	
+	while (input!=x)
+	{
+		if (input>x)
+			alert(input + 'is bigger than ' + x );
+		else if (input<x)
+			alert(input + 'is smaller than ' + x );
+		input = prompt('Enter number',1);	
+	}
+	alert('You found the correct number :D');
+	
+}
+
+PlayGame();
+
+
+</script>
+
+</body>
+<html>

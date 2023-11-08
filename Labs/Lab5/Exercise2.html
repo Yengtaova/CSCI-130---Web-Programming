@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Matrix Calculator</title>
+    <link href="style2.css" rel="stylesheet"/>
+</head>
+<body>
+    <h1>Simple Matrix Calculator</h1>
+
+    <label>Matrix A(n1 x m1):</label>
+    <input type="number" id="n1" placeholder="Rows (n)">
+    <input type="number" id="m1" placeholder="Columns (m)">
+    <br>
+    <label>Matrix B(n2 x m2):</label>
+    <input type="number" id="n2" placeholder="Rows (n)">
+    <input type="number" id="m2" placeholder="Columns (m)">
+
+    <button onclick="generateMatrices()">Generate</button>
+
+    <div id="matrixA"></div>
+    <div id="matrixB"></div>
+
+    <label>Select Operation:</label>
+    <select id="operation">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="*">Multiplication (*)</option>
+    </select>
+
+    <button onclick="performOperation()">Calculate</button>
+
+    <div id="resultA"></div>
+    <div id="resultB"></div>
+    <div id="resultC"></div>
+    <button onclick="calculateTrace('C', document.getElementById('n1').value, document.getElementById('m2').value)">Calculate Trace</button>
+    <div id="traceResultC"></div>
+
+    <script src="script2.js"> </script>
+</body>
+</html>
+

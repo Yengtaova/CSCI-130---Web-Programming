@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1 id="header">List King</h1>
+        <h2>Buy Groceries</h2>
+        <ul>
+          
+        </ul>
+        <script>
+         
+            var list = document.getElementsByTagName('ul')[0];
+
+            //Add new item to the end of the list
+            var newItemLast = document.createElement('li');
+            var newTextLast = document.createTextNode('cream');
+            newItemLast.appendChild(newTextLast);
+            list.appendChild(newItemLast);
+
+            //Add new item to the start of the list
+            var newItemStart = document.createElement('li');
+            var newTextStart = document.createTextNode('kale');
+            newItemStart.appendChild(newTextStart);
+            list.insertBefore(newItemStart, list.firstChild);
+
+            var listItems = document.querySelectorAll('li');
+
+            if (listItems.length > 0){
+                for(var i = 0 ; i < listItems.length; i++){
+                    listItems[i].className = "cold";
+                }
+            }
+
+            //Add number of items in the list to the heading
+            var heading = document.querySelector('h2');
+            var headingText = heading.firstChild.nodeValue;
+            var totalItems = listItems.length;
+            var newHeading = headingText + ' ' + '<span>' + totalItems + '</span>';
+            heading.innerHTML = newHeading;
+          
+        </script>
+    </body>
+</html>

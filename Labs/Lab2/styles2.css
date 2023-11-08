@@ -1,0 +1,20 @@
+table{
+    border-collapse: collapse;
+    border: 2px solid blue;
+}
+
+h3{
+    position: relative;
+    left: 280px;
+}
+
+td {
+    border: 1px solid red;
+    text-align: center;
+    width: 200px;
+    padding: 5px 0px 5px 0px;
+}
+
+th{
+    width: 50px;
+}

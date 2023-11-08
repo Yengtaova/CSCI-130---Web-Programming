@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Exercise 1-Table 2 Internal</title>
+        <style>
+            table{
+                border-collapse: collapse;
+                border: 2px solid blue;
+            }
+
+            h3{
+                position: relative;
+                left: 280px;
+            }
+
+            td {
+                border: 1px solid red;
+                text-align: center;
+                width: 200px;
+                padding: 5px 0px 5px 0px;
+            }
+
+            th{
+                width: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h3>TV Schedule</h3>
+       <table>
+        <tr>
+            <th>Time</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+        </tr>
+        <tr>
+            <th>8 pm</th>
+            <td>Staring Contest</td>
+            <td colspan="2">Celebrity Hoedown</td>
+        </tr>
+        <tr>
+            <th>9 pm</th>
+            <td>Hardy, Har, Har</td>
+            <td>What's for Lunch?</td>
+            <td rowspan="2">Movie of the Week</td>
+        </tr>
+        <tr>
+            <th>10 pm</th>
+            <td>Healer, Wheelers, Dealers</td>
+            <td>It's a Crime</td>
+        </tr>
+       </table>
+    </body>
+
+</html>

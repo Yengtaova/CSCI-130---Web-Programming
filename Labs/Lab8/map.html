@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Current Location Map</title>
+</head>
+<body>
+    <h1>Your Current Location</h1>
+
+    <div id="map" style="width: 400px; height: 400px;"></div>
+    
+    <p>Latitude: <span id="latitude">Loading...</span></p>
+    <p>Longitude: <span id="longitude">Loading...</span></p>
+
+    <script>
+        function showMap(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            
+            // Display the coordinates
+            document.getElementById("latitude").textContent = latitude;
+            document.getElementById("longitude").textContent = longitude;
+
+            // Create a map
+            const mapElement = document.getElementById("map");
+            const map = new google.maps.Map(mapElement, {
+                center: { lat: latitude, lng: longitude },
+                zoom: 15 // Adjust the zoom level as needed
+            });
+
+            // Create a marker at your current location
+            const marker = new google.maps.Marker({
+                position: { lat: latitude, lng: longitude },
+                map: map,
+                title: "Your Location"
+            });
+        }
+
+        function showError(error) {
+            console.error("Geolocation error:", error);
+        }
+
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(showMap, showError);
+        } else {
+            console.error("Geolocation is not supported in this browser.");
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_QXrJx8owHNe06eB5C-2TsV7Kne7Ex8&callback=initMap"></script>
+</body>
+</html>

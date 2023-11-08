@@ -1,0 +1,38 @@
+ul .hot{
+    background-color:orangered;
+}
+
+ul{
+    list-style-type: none;
+    max-width: 150px;
+    padding: 0;
+    border: 1px solid black;
+}
+
+ul li{
+    padding: 8px 16px;
+    border-bottom: 1px solid black;
+}
+
+ul li:last-child{
+    border-bottom: none;
+    background-color: orange;
+}
+
+ul li.cold{
+    background-color: aquamarine;
+}
+
+ul li.finished{
+    background-color:  grey;
+}
+
+span{
+     background-color: red;
+}
+
+
+
+
+
+
